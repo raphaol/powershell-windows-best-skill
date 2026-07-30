@@ -2,39 +2,48 @@
 
 > **Status: EXPERIMENTAL** — This skill is actively being tested and refined. Use at your own risk. Always validate generated scripts before running them in critical or production environments.
 
-A unified Claude Code skill for PowerShell programming on **Windows only**. Consolidates multiple community skills into a single, opinionated reference optimized for Windows automation with PowerShell 7+.
+A unified skill for PowerShell programming on **Windows only**. Consolidates multiple community skills into a single, opinionated reference optimized for Windows automation with PowerShell 7+.
+
+> 📖 **Read in another language:** [Português / Portuguese](README.md)
 
 ---
 
 ## What This Is
 
-`powershell-windows-BEST-SKILL.md` is a [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code) that gives Claude deep, Windows-specific PowerShell expertise when invoked. It covers syntax rules, error handling, performance patterns, security hardening, module management, testing, and more — all without cross-platform noise.
+`SKILL.md` is an instruction file (skill/context) that gives any LLM deep, Windows-specific PowerShell expertise when invoked. It covers syntax rules, error handling, performance patterns, security hardening, module management, testing, and more — all without cross-platform noise.
+
+The skill is **harness-agnostic**: it works with any LLM and any harness/agent that supports loading instruction, context, or rules files (Claude Code, Cursor, OpenCode, Aider, Codex, Cline, Continue, Continue.dev, GitHub Copilot Chat, or manual prompts). The file is plain Markdown with clear rules.
 
 ---
 
 ## How to Use
 
-### 1. Install the skill
+### 1. Load the skill into your harness
 
-Copy `powershell-windows-BEST-SKILL.md` to your Claude Code skills directory or reference it directly from this repository.
+How you load it depends on your harness. Common examples:
+
+- **Claude Code / OpenCode / Cline:** copy `SKILL.md` to your harness's skills/context directory, or reference it directly from this repository
+- **Cursor / Continue / Continue.dev:** paste the contents into your project rules file (e.g., `.cursorrules`, `.continuerc`, `rules.md`) or the system prompt
+- **Copilot Chat / ChatGPT / Gemini / any LLM chat:** attach `SKILL.md` as context, paste its contents into the system prompt, or upload the file in the conversation
+- **Aider / Codex CLI:** pass the path to `SKILL.md` as an additional read/rules file
 
 ### 2. Invoke in a conversation
 
-Reference the skill file in your Claude Code session:
+Reference the skill file in your session:
 
 ```
-@powershell-windows-BEST-SKILL.md write a script that monitors disk space and sends an alert
+@SKILL.md write a script that monitors disk space and sends an alert
 ```
 
-Or tell Claude to use it explicitly:
+Or ask the model explicitly:
 
 ```
 Using the powershell-windows skill, refactor this script to handle errors properly
 ```
 
-### 3. What Claude will apply
+### 3. What the model will apply
 
-Once the skill is active, Claude will follow the patterns defined in the file:
+Once the skill is active, the LLM will follow the patterns defined in the file:
 
 - Wrap cmdlets in parentheses when using logical operators
 - Use ASCII-only output (no emoji in scripts)
@@ -51,7 +60,7 @@ Once the skill is active, Claude will follow the patterns defined in the file:
 
 | File | Description |
 |------|-------------|
-| `powershell-windows-BEST-SKILL.md` | Unified Windows-only skill (use this one) |
+| `SKILL.md` | Unified Windows-only skill (use this one) — harness-agnostic |
 
 ### Source Skills
 
@@ -100,6 +109,19 @@ THIS SKILL IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
 3. Test with `-WhatIf` where supported
 4. Test in a staging or isolated environment first
 5. Ensure you have a rollback plan (backup, snapshot, etc.)
+
+---
+
+## Compatibility
+
+| Harness / LLM | How to use |
+|---------------|-----------|
+| Claude Code, OpenCode, Cline | Load as skill/context or `@SKILL.md` |
+| Cursor, Continue, Continue.dev | Paste contents into `.cursorrules` / `.continuerc` / `rules.md` |
+| Codex CLI, Aider | Pass as additional rules file |
+| Copilot Chat, ChatGPT, Gemini, any chat | Attach the file, paste into system prompt, or upload |
+
+> The skill does not depend on any API, plugin, or specific runtime. It is plain Markdown.
 
 ---
 
