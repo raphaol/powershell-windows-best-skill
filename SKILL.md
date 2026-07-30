@@ -1,6 +1,6 @@
 ---
 name: powershell-windows-master
-description: "PowerShell Windows programming — PS7+ on Windows. Critical syntax rules, patterns, performance, security, modules, and testing. Windows-only, no cross-platform content."
+description: "PowerShell Windows programming — PS7+ on Windows. Critical syntax rules, patterns, performance, security, modules, and testing. Windows-only, no cross-platform content. Works with any LLM and any harness/agent that loads instruction files."
 risk: low
 source: unified
 date_added: "2026-05-29"
@@ -9,6 +9,8 @@ date_added: "2026-05-29"
 # PowerShell Windows Master
 
 > Complete PowerShell expertise for Windows. Covers PS7+ features with 5.1 notes where required.
+>
+> **Harness-agnostic:** this skill is plain Markdown with explicit rules. It works with any LLM (Claude, GPT, Gemini, etc.) and any harness/agent that can load instruction/context files (Claude Code, Cursor, OpenCode, Cline, Aider, Codex, Copilot Chat, manual prompts). No API, plugin, or runtime dependency.
 
 ---
 

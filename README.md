@@ -2,7 +2,7 @@
 
 > **Status: EXPERIMENTAL** — Esta skill está em fase ativa de testes e refinamento. Use por sua conta e risco. Sempre valide os scripts gerados antes de executá-los em ambientes críticos ou de produção.
 
-Uma skill unificada do Claude Code para programação PowerShell **exclusivamente no Windows**. Consolida múltiplas skills da comunidade em uma única referência opinativa e otimizada para automação Windows com PowerShell 7+.
+Uma skill unificada para programação PowerShell **exclusivamente no Windows**. Consolida múltiplas skills da comunidade em uma única referência opinativa e otimizada para automação Windows com PowerShell 7+.
 
 > 📖 **Leia em outro idioma:** [English / Inglês](README.en.md)
 
@@ -10,33 +10,40 @@ Uma skill unificada do Claude Code para programação PowerShell **exclusivament
 
 ## O Que É Isso
 
-`SKILL.md` é uma [skill do Claude Code](https://docs.anthropic.com/en/docs/claude-code) que fornece ao Claude conhecimento profundo e específico do Windows sobre PowerShell quando invocada. Cobre regras de sintaxe, tratamento de erros, padrões de performance, endurecimento de segurança, gerenciamento de módulos, testes e mais — sem ruído multiplataforma.
+`SKILL.md` é um arquivo de instruções (skill/contexto) que fornece a qualquer LLM conhecimento profundo e específico do Windows sobre PowerShell. Cobre regras de sintaxe, tratamento de erros, padrões de performance, endurecimento de segurança, gerenciamento de módulos, testes e mais — sem ruído multiplataforma.
+
+A skill é **agnóstica de ferramenta**: funciona com qualquer LLM e qualquer harness/agent que suporte carregar arquivos de instrução, contexto ou regras (Claude Code, Cursor, OpenCode, Aider, Codex, Cline, Continue, Continue.dev, GitHub Copilot Chat, ou prompts manuais). O arquivo é apenas Markdown com regras claras.
 
 ---
 
 ## Como Usar
 
-### 1. Instalar a skill
+### 1. Carregar a skill no seu harness
 
-Copie `SKILL.md` para o seu diretório de skills do Claude Code ou referencie-o diretamente a partir deste repositório.
+A forma de carregar depende do harness que você usa. Exemplos comuns:
+
+- **Claude Code / OpenCode / Cline:** copie `SKILL.md` para o diretório de skills/contexto do seu harness, ou referencie-o diretamente a partir deste repositório
+- **Cursor / Continue / Continue.dev:** cole o conteúdo no arquivo de regras do projeto (por exemplo, `.cursorrules`, `.continuerc`, `rules.md`) ou no system prompt
+- **Copilot Chat / ChatGPT / Gemini / qualquer chat LLM:** anexe `SKILL.md` como contexto, cole seu conteúdo no prompt do sistema, ou faça upload do arquivo na conversa
+- **Aider / Codex CLI:** passe o caminho do `SKILL.md` como arquivo de leitura/regra adicional
 
 ### 2. Invocar em uma conversa
 
-Referencie o arquivo da skill na sua sessão do Claude Code:
+Referencie o arquivo da skill na sua sessão:
 
 ```
 @SKILL.md escreva um script que monitore o espaço em disco e envie um alerta
 ```
 
-Ou diga ao Claude para usá-la explicitamente:
+Ou peça ao modelo explicitamente:
 
 ```
 Usando a skill powershell-windows, refatore este script para tratar erros corretamente
 ```
 
-### 3. O que o Claude vai aplicar
+### 3. O que o modelo vai aplicar
 
-Com a skill ativa, o Claude seguirá os padrões definidos no arquivo:
+Com a skill ativa, o LLM seguirá os padrões definidos no arquivo:
 
 - Envolver cmdlets em parênteses ao usar operadores lógicos
 - Usar apenas saída ASCII (sem emoji nos scripts)
@@ -53,7 +60,7 @@ Com a skill ativa, o Claude seguirá os padrões definidos no arquivo:
 
 | Arquivo | Descrição |
 |---------|-----------|
-| `SKILL.md` | Skill unificada exclusiva para Windows (use esta) |
+| `SKILL.md` | Skill unificada exclusiva para Windows (use esta) — agnóstica de LLM/harness |
 
 ### Skills de Origem
 
@@ -102,6 +109,19 @@ ESTA SKILL É FORNECIDA "NO ESTADO EM QUE SE ENCONTRA", SEM NENHUM TIPO DE GARAN
 3. Teste com `-WhatIf` quando suportado
 4. Teste em um ambiente de staging ou isolado primeiro
 5. Garanta que você tenha um plano de rollback (backup, snapshot, etc.)
+
+---
+
+## Compatibilidade
+
+| Harness / LLM | Como usar |
+|---------------|-----------|
+| Claude Code, OpenCode, Cline | Carregue como skill/contexto ou `@SKILL.md` |
+| Cursor, Continue, Continue.dev | Cole o conteúdo em `.cursorrules` / `.continuerc` / `rules.md` |
+| Codex CLI, Aider | Passe como arquivo de regra adicional |
+| Copilot Chat, ChatGPT, Gemini, qualquer chat | Anexe o arquivo, cole no prompt do sistema ou faça upload |
+
+> A skill não depende de nenhuma API, plug-in ou runtime específico. É apenas Markdown.
 
 ---
 
