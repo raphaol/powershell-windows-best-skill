@@ -1,108 +1,110 @@
 # powershell-windows-best-skill
 
-> **Status: EXPERIMENTAL** — This skill is actively being tested and refined. Use at your own risk. Always validate generated scripts before running them in critical or production environments.
+> **Status: EXPERIMENTAL** — Esta skill está em fase ativa de testes e refinamento. Use por sua conta e risco. Sempre valide os scripts gerados antes de executá-los em ambientes críticos ou de produção.
 
-A unified Claude Code skill for PowerShell programming on **Windows only**. Consolidates multiple community skills into a single, opinionated reference optimized for Windows automation with PowerShell 7+.
+Uma skill unificada do Claude Code para programação PowerShell **exclusivamente no Windows**. Consolida múltiplas skills da comunidade em uma única referência opinativa e otimizada para automação Windows com PowerShell 7+.
 
----
-
-## What This Is
-
-`powershell-windows-BEST-SKILL.md` is a [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code) that gives Claude deep, Windows-specific PowerShell expertise when invoked. It covers syntax rules, error handling, performance patterns, security hardening, module management, testing, and more — all without cross-platform noise.
+> 📖 **Leia em outro idioma:** [English / Inglês](README.en.md)
 
 ---
 
-## How to Use
+## O Que É Isso
 
-### 1. Install the skill
-
-Copy `powershell-windows-BEST-SKILL.md` to your Claude Code skills directory or reference it directly from this repository.
-
-### 2. Invoke in a conversation
-
-Reference the skill file in your Claude Code session:
-
-```
-@powershell-windows-BEST-SKILL.md write a script that monitors disk space and sends an alert
-```
-
-Or tell Claude to use it explicitly:
-
-```
-Using the powershell-windows skill, refactor this script to handle errors properly
-```
-
-### 3. What Claude will apply
-
-Once the skill is active, Claude will follow the patterns defined in the file:
-
-- Wrap cmdlets in parentheses when using logical operators
-- Use ASCII-only output (no emoji in scripts)
-- Check for null before accessing properties
-- Always specify `-Depth` on `ConvertTo-Json`
-- Use `List[T]` instead of `$array +=` for dynamic collections
-- Prefer `Join-Path` for path construction
-- Include `#Requires`, `Set-StrictMode`, and `$ErrorActionPreference` in every script
-- Apply input validation attributes on all parameters
+`SKILL.md` é uma [skill do Claude Code](https://docs.anthropic.com/en/docs/claude-code) que fornece ao Claude conhecimento profundo e específico do Windows sobre PowerShell quando invocada. Cobre regras de sintaxe, tratamento de erros, padrões de performance, endurecimento de segurança, gerenciamento de módulos, testes e mais — sem ruído multiplataforma.
 
 ---
 
-## Skill File
+## Como Usar
 
-| File | Description |
-|------|-------------|
-| `powershell-windows-BEST-SKILL.md` | Unified Windows-only skill (use this one) |
+### 1. Instalar a skill
 
-### Source Skills
+Copie `SKILL.md` para o seu diretório de skills do Claude Code ou referencie-o diretamente a partir deste repositório.
 
-The unified skill was built by consolidating and filtering the following community skills.
+### 2. Invocar em uma conversa
 
-| Repository | Scope | Status |
-|------------|-------|--------|
-| [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) · [skills.sh](https://www.skills.sh/sickn33/antigravity-awesome-skills/powershell-windows) | Windows pitfalls and critical syntax rules | Merged |
-| [josiahsiegel/claude-plugin-marketplace](https://github.com/josiahsiegel/claude-plugin-marketplace) · [skills.sh](https://www.skills.sh/josiahsiegel/claude-plugin-marketplace/powershell-master) | Full PowerShell master skill — syntax, security, modules | Merged (cross-platform parts removed) |
-| [404kidwiz/claude-supercode-skills](https://github.com/404kidwiz/claude-supercode-skills) · [skills.sh](https://www.skills.sh/404kidwiz/claude-supercode-skills/powershell-7-expert) | PS7+ features | Partially merged (Windows-relevant parts only) |
-
----
-
-## What Was Removed from Source Skills
-
-The following content was intentionally excluded from the unified skill:
-
-- Linux and macOS installation paths
-- `$IsLinux`, `$IsMacOS` platform detection
-- SSH remoting (cross-platform WinRM alternative)
-- "Test on all platforms" guidance
-- Bash/shell integration patterns
-- CI/CD multi-platform matrix configurations
-- Cross-platform path handling patterns
-
----
-
-## Disclaimer
+Referencie o arquivo da skill na sua sessão do Claude Code:
 
 ```
-THIS SKILL IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
-
-- Scripts and patterns suggested by this skill have not been validated
-  against every environment, configuration, or Windows version.
-- Always review generated scripts before executing them.
-- Test in a non-production environment first.
-- Never run untrusted scripts with administrator privileges without review.
-- The author assumes no responsibility for data loss, system damage,
-  or any other consequence arising from the use of this skill.
+@SKILL.md escreva um script que monitore o espaço em disco e envie um alerta
 ```
 
-**Before running any script in a critical environment:**
+Ou diga ao Claude para usá-la explicitamente:
 
-1. Read the entire script and understand what it does
-2. Run `Invoke-ScriptAnalyzer -Path script.ps1` and fix all findings
-3. Test with `-WhatIf` where supported
-4. Test in a staging or isolated environment first
-5. Ensure you have a rollback plan (backup, snapshot, etc.)
+```
+Usando a skill powershell-windows, refatore este script para tratar erros corretamente
+```
+
+### 3. O que o Claude vai aplicar
+
+Com a skill ativa, o Claude seguirá os padrões definidos no arquivo:
+
+- Envolver cmdlets em parênteses ao usar operadores lógicos
+- Usar apenas saída ASCII (sem emoji nos scripts)
+- Verificar nulo antes de acessar propriedades
+- Sempre especificar `-Depth` no `ConvertTo-Json`
+- Usar `List[T]` em vez de `$array +=` para coleções dinâmicas
+- Preferir `Join-Path` para construção de caminhos
+- Incluir `#Requires`, `Set-StrictMode` e `$ErrorActionPreference` em todo script
+- Aplicar atributos de validação de entrada em todos os parâmetros
 
 ---
 
-## Contributing
+## Arquivo da Skill
 
-Found an error, outdated pattern, or missing Windows-specific content? Open an issue or submit a PR. Keep contributions Windows-only — cross-platform content will be rejected.
+| Arquivo | Descrição |
+|---------|-----------|
+| `SKILL.md` | Skill unificada exclusiva para Windows (use esta) |
+
+### Skills de Origem
+
+A skill unificada foi construída consolidando e filtrando as seguintes skills da comunidade.
+
+| Repositório | Escopo | Status |
+|-------------|--------|--------|
+| [sickn33/antigravity-awesome-skills](https://github.com/sickn99/antigravity-awesome-skills) · [skills.sh](https://www.skills.sh/sickn99/antigravity-awesome-skills/powershell-windows) | Pitfalls do Windows e regras críticas de sintaxe | Mesclado |
+| [josiahsiegel/claude-plugin-marketplace](https://github.com/josiahsiegel/claude-plugin-marketplace) · [skills.sh](https://www.skills.sh/josiahsiegel/claude-plugin-marketplace/powershell-master) | Skill mestra completa de PowerShell — sintaxe, segurança, módulos | Mesclado (partes multiplataforma removidas) |
+| [404kidwiz/claude-supercode-skills](https://github.com/404kidwiz/claude-supercode-skills) · [skills.sh](https://www.skills.sh/404kidwiz/claude-supercode-skills/powershell-7-expert) | Recursos do PS7+ | Parcialmente mesclado (apenas partes relevantes ao Windows) |
+
+---
+
+## O Que Foi Removido das Skills de Origem
+
+O seguinte conteúdo foi intencionalmente excluído da skill unificada:
+
+- Caminhos de instalação Linux e macOS
+- Detecção de plataforma `$IsLinux`, `$IsMacOS`
+- Remoting via SSH (alternativa multiplataforma ao WinRM)
+- Orientação de "testar em todas as plataformas"
+- Padrões de integração com Bash/shell
+- Configurações de matriz multiplataforma em CI/CD
+- Padrões de manipulação de caminhos multiplataforma
+
+---
+
+## Aviso
+
+```
+ESTA SKILL É FORNECIDA "NO ESTADO EM QUE SE ENCONTRA", SEM NENHUM TIPO DE GARANTIA.
+
+- Scripts e padrões sugeridos por esta skill não foram validados
+  em todos os ambientes, configurações ou versões do Windows.
+- Sempre revise os scripts gerados antes de executá-los.
+- Teste primeiro em um ambiente que não seja de produção.
+- Nunca execute scripts não confiáveis com privilégios de administrador sem revisão.
+- O autor não se responsabiliza por perda de dados, danos ao sistema
+  ou qualquer outra consequência decorrente do uso desta skill.
+```
+
+**Antes de executar qualquer script em ambiente crítico:**
+
+1. Leia o script inteiro e entenda o que ele faz
+2. Execute `Invoke-ScriptAnalyzer -Path script.ps1` e corrija todas as finding
+3. Teste com `-WhatIf` quando suportado
+4. Teste em um ambiente de staging ou isolado primeiro
+5. Garanta que você tenha um plano de rollback (backup, snapshot, etc.)
+
+---
+
+## Contribuindo
+
+Encontrou um erro, padrão desatualizado ou conteúdo específico do Windows ausente? Abra uma issue ou envie um PR. Mantenha as contribuições exclusivas para Windows — conteúdo multiplataforma será rejeitado.
