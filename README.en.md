@@ -1,10 +1,12 @@
+<p align="right">
+  <a href="README.md">🇧🇷 Português</a> &nbsp;|&nbsp; <b>🇺🇸 English</b>
+</p>
+
 # powershell-windows-best-skill
 
 > **Status: EXPERIMENTAL** — This skill is actively being tested and refined. Use at your own risk. Always validate generated scripts before running them in critical or production environments.
 
 A unified skill for PowerShell programming on **Windows only**. Consolidates multiple community skills into a single, opinionated reference optimized for Windows automation with PowerShell 7+.
-
-> 📖 **Read in another language:** [Português / Portuguese](README.md)
 
 ---
 
